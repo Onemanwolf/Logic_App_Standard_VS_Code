@@ -8,6 +8,15 @@
         "id": "/serviceProviders/serviceBus"
       },
       "displayName": "service-bus"
+    },
+    "AzureBlob": {
+      "parameterValues": {
+        "connectionString": "@appsetting('AzureBlob_connectionString')"
+      },
+      "serviceProvider": {
+        "id": "/serviceProviders/AzureBlob"
+      },
+      "displayName": "blogstorage"
     }
   },
   "managedApiConnections": {

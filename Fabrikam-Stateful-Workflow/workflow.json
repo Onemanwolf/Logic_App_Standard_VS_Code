@@ -18,6 +18,26 @@
                     },
                     "path": "/v2/Mail"
                 },
+                "runAfter": {
+                    "Uploads_a_Blob_to_Azure_Storage": [
+                        "Succeeded"
+                    ]
+                }
+            },
+            "Uploads_a_Blob_to_Azure_Storage": {
+                "type": "ServiceProvider",
+                "inputs": {
+                    "parameters": {
+                        "containerName": "testblob001",
+                        "blobName": "@concat(utcNow(), 'tst')",
+                        "content": "@triggerOutputs()?['body']?['contentType']"
+                    },
+                    "serviceProviderConfiguration": {
+                        "connectionName": "AzureBlob",
+                        "operationId": "uploadBlob",
+                        "serviceProviderId": "/serviceProviders/AzureBlob"
+                    }
+                },
                 "runAfter": {}
             }
         },
